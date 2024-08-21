@@ -1,0 +1,11 @@
+<%= form_with model: @camp do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, placeholder: "Название" %>
+  </div>
+  <div>
+    <%= f.label :Описание %>
+    <%= f.text_area :description, placeholder: "Описание" %>
+  </div>
+  <%= f.submit "Сохранить объект" %>
+<% end %>
