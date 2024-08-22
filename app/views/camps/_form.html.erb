@@ -7,5 +7,9 @@
     <%= f.label :Описание %>
     <%= f.text_area :description, placeholder: "Описание" %>
   </div>
+  <div>
+    <%= f.label :Город %>
+    <%= collection_select(:camp, :city_id, City.all, :id, :title, include_blank: "Город не выбран") %>
+  </div>
   <%= f.submit "Сохранить объект" %>
 <% end %>

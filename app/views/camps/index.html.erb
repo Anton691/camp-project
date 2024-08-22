@@ -1,6 +1,6 @@
 <h1>Управление объектами размещения</h1>
 <ul>
   <% @camps.each do |camp| %>
-    <li><span><%= camp.title %></span> <span><%= link_to "Показать", camp_path(camp) %></span> <span><%= link_to "ред.", edit_camp_path(camp) %></span> <span><%= link_to "удалить", camp_path(camp), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+    <li><span><%= camp.title %> <%= camp.city.title if camp.city.present? %> | </span> <span><%= link_to "Показать", camp_path(camp) %></span> <span><%= link_to "ред.", edit_camp_path(camp) %></span> <span><%= link_to "удалить", camp_path(camp), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
   <% end %>
 </ul>
