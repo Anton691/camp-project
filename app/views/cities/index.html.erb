@@ -1,6 +1,6 @@
 <h1>Список городов</h1>
 <ul>
   <% @cities.each do |city| %>
-    <li><span><%= city.title %></span> <span><%= link_to "Показать", city_path(city) %></span> <span><%= link_to "ред.", edit_city_path(city) %></span> <span><%= link_to "удалить", city_path(city), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+    <li><span><%= city.title %></span> <%= city.region.title if city.region.present? %> | <span><%= link_to "Показать", city_path(city) %></span> <span><%= link_to "ред.", edit_city_path(city) %></span> <span><%= link_to "удалить", city_path(city), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
   <% end %>
 </ul>

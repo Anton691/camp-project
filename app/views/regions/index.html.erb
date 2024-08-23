@@ -1,0 +1,6 @@
+<h1>Список регионов</h1>
+<ul>
+  <% @regions.each do |region| %>
+    <li><span><%= region.title %></span> <span><%= link_to "Показать", region_path(region) %></span> <span><%= link_to "ред.", edit_region_path(region) %></span> <span><%= link_to "удалить", region_path(region), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+  <% end %>
+</ul>

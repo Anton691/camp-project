@@ -1,0 +1,7 @@
+<%= form_with model: @region do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, placeholder: "Название" %>
+  </div>
+  <%= f.submit "Сохранить регион" %>
+<% end %>
