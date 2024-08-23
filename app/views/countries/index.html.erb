@@ -1,0 +1,6 @@
+<h1>Список стран</h1>
+<ul>
+  <% @countries.each do |country| %>
+    <li><span><%= country.title %></span> <span><%= link_to "Показать", country_path(country) %></span> <span><%= link_to "ред.", edit_country_path(country) %></span> <span><%= link_to "удалить", country_path(country), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+  <% end %>
+</ul>

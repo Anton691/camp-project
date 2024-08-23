@@ -3,5 +3,9 @@
     <%= f.label :title %>
     <%= f.text_field :title, required: true, placeholder: "Название" %>
   </div>
+  <div>
+    <%= f.label :Страна %>
+    <%= collection_select(:region, :country_id, Country.all, :id, :title, include_blank: "Регион не выбран") %>
+  </div>
   <%= f.submit "Сохранить регион" %>
 <% end %>

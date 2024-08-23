@@ -40,7 +40,7 @@ class RegionsController < ApplicationController
   private
 
   def region_params
-    params.require(:region).permit(:title)
+    params.require(:region).permit(:title, :country_id)
   end
 
   def set_region

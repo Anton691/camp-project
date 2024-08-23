@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_22_141517) do
+ActiveRecord::Schema.define(version: 2024_08_23_123946) do
 
   create_table "camps", force: :cascade do |t|
     t.string "title"
@@ -29,12 +29,21 @@ ActiveRecord::Schema.define(version: 2024_08_22_141517) do
     t.index ["region_id"], name: "index_cities_on_region_id"
   end
 
-  create_table "regions", force: :cascade do |t|
+  create_table "countries", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "regions", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_regions_on_country_id"
+  end
+
   add_foreign_key "camps", "cities"
   add_foreign_key "cities", "regions"
+  add_foreign_key "regions", "countries"
 end
