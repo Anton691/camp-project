@@ -1,2 +1,9 @@
 <h1><%= @city.title %></h1>
-<p>Регион: <%= @city.region.present? ? @city.region.title : "не указано" %></p>
+<p>Регион:
+  <% if @city.region.present? %>
+    <%= @city.region.title %>
+    <%= " #{@city.region.country.title if @city.region.country.present?}" %>
+  <% else %>
+    "не указано"
+  <% end %>
+</p>
