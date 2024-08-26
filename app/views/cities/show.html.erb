@@ -7,3 +7,13 @@
     "не указано"
   <% end %>
 </p>
+<h2>Доступные объекты размещения</h2>
+<% if @city.camps.present? %>
+  <ul>
+    <% @city.camps.each do |camp| %>
+      <li><%= link_to camp.title, camp_path(camp) %> | <%= link_to "ред.", edit_camp_path(camp) %> <%= link_to "удалить", camp_path(camp), data: {method: :delete, confirm: "Вы уверены?"} %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>В данном городе нет доступных объектов размещения.</p>
+<% end %>

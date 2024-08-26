@@ -1,2 +1,21 @@
 <h1><%= @region.title %></h1>
 <p>Страна: <%= @region.country.present? ? @region.country.title : "не указано" %></p>
+<h2>Доступные объекты размещения</h2>
+<% if @region.cities.present? || @region.cities.empty? %>
+  <ul>
+    <% camp_count = 0
+      @region.cities.each do |city|
+        if city.camps.present?
+          city.camps.each do |camp|
+            camp_count += 1 %>
+            <li><%= link_to camp.title, camp_path(camp) %> | <%= link_to "ред.", edit_camp_path(camp) %> <%= link_to "удалить", camp_path(camp), data: {method: :delete, confirm: "Вы уверены?"} %></li>
+          <% end
+        end
+    end %>
+  </ul>
+  <% if camp_count == 0 %>
+    <p>В данном регионе нет доступных объектов размещения.</p>
+  <% end %>
+<% else %>
+  <p>В данном регионе нет доступных объектов размещения.</p>
+<% end %>
