@@ -1,6 +1,16 @@
 <h1>Список стран</h1>
-<ul>
+<%= link_to "Создать страну", new_country_path, class: "mb-3 btn btn-primary" %>
+<ul class="d-grid gap-1 ps-0">
   <% @countries.each do |country| %>
-    <li><span><%= country.title %></span> <span><%= link_to "Показать", country_path(country) %></span> <span><%= link_to "ред.", edit_country_path(country) %></span> <span><%= link_to "удалить", country_path(country), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+    <li class="card">
+      <div class="card-body d-flex flex-row justify-content-between">
+        <div class="d-flex align-items-center">
+          <%= link_to country.title, country_path(country) %>
+        </div>
+        <div>
+          <%= link_to "ред.", edit_country_path(country), class: "btn btn-outline-secondary" %>
+          <%= link_to "удалить", country_path(country), data: { method: :delete, confirm: "Вы уверены?" }, class: "btn btn-outline-danger" %></div>
+      </div>
+    </li>
   <% end %>
 </ul>

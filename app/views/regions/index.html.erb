@@ -1,6 +1,16 @@
 <h1>Список регионов</h1>
-<ul>
+<%= link_to "Создать регион", new_region_path, class: "mb-3 btn btn-primary" %>
+<ul class="d-grid gap-1 ps-0">
   <% @regions.each do |region| %>
-    <li><span><%= region.title %></span> <%= region.country.title if region.country.present? %> | <span><%= link_to "Показать", region_path(region) %></span> <span><%= link_to "ред.", edit_region_path(region) %></span> <span><%= link_to "удалить", region_path(region), data: {method: :delete, confirm: "Вы уверены?"} %></span></li>
+    <li class="card">
+      <div class="card-body d-flex flex-row justify-content-between">
+        <div class="d-flex align-items-center">
+          <%= link_to region.title, region_path(region), class: "me-1" %> <span><%= " | #{ region.country.title }" if region.country.present? %></span>
+        </div>
+        <div>
+          <%= link_to "ред.", edit_region_path(region), class: "btn btn-outline-secondary" %>
+          <%= link_to "удалить", region_path(region), data: { method: :delete, confirm: "Вы уверены?" }, class: "btn btn-outline-danger" %></div>
+      </div>
+    </li>
   <% end %>
 </ul>
