@@ -1,11 +1,11 @@
 <%= form_with model: @city do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title, required: true, placeholder: "Название" %>
+  <div class="mb-3">
+    <%= f.label :Название, class: "form-label" %>
+    <%= f.text_field :title, required: true, placeholder: "Название", class: "form-control" %>
   </div>
-  <div>
-    <%= f.label :Регион %>
-    <%= collection_select(:city, :region_id, Region.all, :id, :title, include_blank: "Регион не выбран") %>
+  <div class="mb-3">
+    <%= f.label :Регион, class: "form-label" %>
+    <%= collection_select(:city, :region_id, Region.all, :id, :title, { include_blank: "Регион не выбран" }, class: "form-select" ) %>
   </div>
-  <%= f.submit "Сохранить город" %>
+  <%= f.submit "Сохранить город", class: "btn btn-primary" %>
 <% end %>

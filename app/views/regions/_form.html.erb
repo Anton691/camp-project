@@ -1,11 +1,11 @@
 <%= form_with model: @region do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title, required: true, placeholder: "Название" %>
+  <div class="mb-3">
+    <%= f.label :Название, class: "form-label" %>
+    <%= f.text_field :title, required: true, placeholder: "Название", class: "form-control" %>
   </div>
-  <div>
-    <%= f.label :Страна %>
-    <%= collection_select(:region, :country_id, Country.all, :id, :title, include_blank: "Регион не выбран") %>
+  <div class="mb-3">
+    <%= f.label :Страна, class: "form-label" %>
+    <%= collection_select(:region, :country_id, Country.all, :id, :title, { include_blank: "Страна не выбрана" }, class: "form-select") %>
   </div>
-  <%= f.submit "Сохранить регион" %>
+  <%= f.submit "Сохранить регион", class: "btn btn-primary" %>
 <% end %>
