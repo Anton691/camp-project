@@ -1,14 +1,24 @@
 <h1><%= @region.title %></h1>
+<%= link_to "Редактировать регион", edit_region_path, class: "mb-3 btn btn-secondary" %>
 <p>Страна: <%= @region.country.present? ? @region.country.title : "не указано" %></p>
 <h2>Доступные объекты размещения</h2>
 <% if @region.cities.present? || @region.cities.empty? %>
-  <ul>
+  <ul class="d-grid gap-1 ps-0">
     <% camp_count = 0
       @region.cities.each do |city|
         if city.camps.present?
           city.camps.each do |camp|
             camp_count += 1 %>
-            <li><%= link_to camp.title, camp_path(camp) %> | <%= link_to "ред.", edit_camp_path(camp) %> <%= link_to "удалить", camp_path(camp), data: {method: :delete, confirm: "Вы уверены?"} %></li>
+            <li class="card">
+              <div class="card-body d-flex flex-row justify-content-between">
+                <div class="d-flex align-items-center">
+                  <%= link_to camp.title, camp_path(camp), class: "me-1" %> <span><%= " | #{ camp.city.title }" if camp.city.present? %></span>
+                </div>
+                <div>
+                  <%= link_to "ред.", edit_camp_path(camp), class: "btn btn-outline-secondary" %>
+                  <%= link_to "удалить", camp_path(camp), data: { method: :delete, confirm: "Вы уверены?" }, class: "btn btn-outline-danger" %></div>
+              </div>
+            </li>
           <% end
         end
     end %>
