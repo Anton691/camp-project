@@ -1,3 +1,5 @@
 <h1><%= @camp.title %></h1>
+<%= link_to "Редактировать ОР", edit_camp_path, class: "mb-3 btn btn-secondary" %>
 <p>Месторасположение: <%= @camp.city.present? ? @camp.city.title : "не указано" %></p>
+<h2>Описание объекта:</h2>
 <p><%= @camp.description %></p>
