@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
-    <title>Testovoe</title>
+    <title>Администрирование объектов размещения</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="p-2 bg-dark text-white">
+      <div class="container d-flex">
+        <h1 class="mb-0 me-5 d-flex align-items-center">
+          <%= link_to "Администрирование объектов размещения", root_path, class: "fs-5 text-white text-decoration-none" %>
+        </h1>
+        <nav class="d-flex align-items-center">
+          <ul class="d-flex mb-0 ps-0 list-unstyled">
+            <li class="me-3"><%= link_to "Объекты размещения", camps_path, class: "text-white text-decoration-none" %></li>
+            <li class="me-3"><%= link_to "Города", cities_path, class: "text-white text-decoration-none" %></li>
+            <li class="me-3"><%= link_to "Регионы", regions_path, class: "text-white text-decoration-none" %></li>
+            <li><%= link_to "Страны", countries_path, class: "text-white text-decoration-none" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container mt-3">
+      <%= yield %>
+    </main>
   </body>
 </html>
