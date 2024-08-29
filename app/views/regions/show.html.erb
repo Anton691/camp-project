@@ -1,7 +1,7 @@
-<h1><%= @region.title %></h1>
+<h2><%= @region.title %></h2>
 <%= link_to "Редактировать регион", edit_region_path, class: "mb-3 btn btn-secondary" %>
 <p>Страна: <%= @region.country.present? ? @region.country.title : "не указано" %></p>
-<h2>Доступные объекты размещения</h2>
+<h3>Доступные объекты размещения</h3>
 <% if @region.cities.present? || @region.cities.empty? %>
   <ul class="d-grid gap-1 ps-0">
     <% camp_count = 0
